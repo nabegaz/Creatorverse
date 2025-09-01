@@ -1,4 +1,4 @@
-# WEB103 Prework - *👉🏿 Name of App Here*
+# WEB103 Prework - *👉🏿 CreatorVerse
 
 Submitted by: Nathan Abegaz
 
