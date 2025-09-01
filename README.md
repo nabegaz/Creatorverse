@@ -1,4 +1,4 @@
-# WEB103 Prework - *👉🏿 CreatorVerse
+# WEB103 Prework - CreatorVerse
 
 Submitted by: Nathan Abegaz
 
@@ -35,7 +35,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='./gif/creatorverse_demo.gif' title='Video Walkthrough' width='600' alt='Video Walkthrough' />
+<img src='./gif/creatorverse_demo.gif' title='Video Walkthrough' width='600' alt='Video Walkthrough' />
 
 GIF created with LiceCap
 
