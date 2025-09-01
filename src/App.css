@@ -1,5 +1,197 @@
+@import url("@picocss/pico");
+
+/* Override Pico defaults with CreatorVerse theme */
+:root {
+  --primary: #007bff;
+  --primary-hover: #0056b3;
+  --secondary: #6c757d;
+  --contrast: #fff;
+  --color: #212529;
+}
+
+/* App specific styles */
 .App {
+  min-height: 100vh;
+}
+
+/* Navigation improvements */
+nav.container-fluid {
+  background: var(--primary);
+  border-bottom: 1px solid var(--primary-hover);
+}
+
+nav a {
+  color: var(--contrast) !important;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--contrast) !important;
+  opacity: 0.8;
+}
+
+nav [role="button"] {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Creators Grid */
+.creators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* Creator Card Styling */
+.creator-card {
+  margin: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.creator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-box-shadow), 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.creator-card header {
+  padding: 0;
+  margin: 0;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.creator-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+}
+
+.creator-card main {
+  padding: 1rem;
+}
+
+.creator-card main h3 {
+  margin: 0 0 1rem 0;
+  color: var(--color);
+  font-weight: 600;
+}
+
+.creator-card main p {
+  margin: 0;
+  color: var(--color);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.creator-actions {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Single Creator View */
+.single-creator {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.single-creator header {
+  padding: 0;
+  margin: 0;
+  min-height: 300px;
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.single-creator-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+}
+
+.single-creator main {
+  padding: 2rem;
+}
+
+.single-creator main p {
+  color: var(--color);
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.single-creator footer {
+  padding: 0 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* No creators message */
+.no-creators {
   text-align: center;
+  padding: 4rem 2rem;
+  color: var(--muted-color);
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted-color);
+}
+
+/* Form improvements */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .creators-grid {
+    grid-template-columns: 1fr;
+    margin: 1rem 0;
+    gap: 1rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .single-creator footer {
+    flex-direction: column;
+  }
+  
+  .single-creator footer [role="group"] {
+    flex-direction: column;
+  }
 }
 
 .App-logo {
@@ -34,5 +226,418 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Creator Card Styles */
+.creators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.creator-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.creator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.creator-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.creator-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creator-info {
+  padding: 1.5rem;
+}
+
+.creator-name {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.creator-description {
+  margin: 0 0 1.5rem 0;
+  color: #666;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.creator-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.creator-url, .view-creator-btn, .edit-creator-btn, .delete-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.creator-url {
+  background-color: #007bff;
+  color: white;
+}
+
+.creator-url:hover {
+  background-color: #0056b3;
+}
+
+.view-creator-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.view-creator-btn:hover {
+  background-color: #1e7e34;
+}
+
+.edit-creator-btn {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.edit-creator-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Form Styles */
+.creator-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Page Styles */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.add-creator-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.add-creator-btn:hover {
+  background-color: #1e7e34;
+}
+
+.no-creators {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.no-creators h2 {
+  margin-bottom: 1rem;
+}
+
+/* Single Creator View */
+.single-creator {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.single-creator-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.single-creator-content {
+  padding: 2rem;
+}
+
+.single-creator h1 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.single-creator-description {
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.single-creator-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Additional image display options */
+.creator-card.contain-image .creator-image {
+  object-fit: contain;
+  background-color: #f8f9fa;
+}
+
+.creator-card.cover-image .creator-image {
+  object-fit: cover;
+}
+
+.creator-card.scale-image .creator-image {
+  object-fit: scale-down;
+  background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .creators-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .creator-actions {
+    flex-direction: column;
+  }
+  
+  .single-creator-actions {
+    flex-direction: column;
+  }
+  
+  .navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    justify-content: center;
+  }
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+.notification.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.notification.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.notification.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification.fade-out {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Confirmation Dialog Styles */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: overlayFadeIn 0.3s ease-out;
+}
+
+.confirmation-dialog {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: dialogSlideIn 0.3s ease-out;
+}
+
+.confirmation-dialog h3 {
+  margin: 0 0 1rem 0;
+  color: var(--color);
+  font-weight: 600;
+}
+
+.confirmation-dialog p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.confirmation-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.confirmation-actions button {
+  margin: 0;
+  min-width: 80px;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
